@@ -11,12 +11,28 @@ package com.javaaid.hackerrank.solutions.thirtydaysofcode;
  *
  */
 class Person {
+	private String firstName;
+	private String lastName;
 	private int age;
 
 	public Person(int initialAge) {
 		if (initialAge < 0) {
 			System.out.println("Age is not valid, setting age to 0.");
 		}
+		this.age = initialAge;
+		// Add some more code to run some checks on initialAge
+	}
+
+	public Person(String firstName, String lastName, int initialAge) {
+		if (firstName.equals("")) {
+			System.out.println("First Name is not valid, setting first name to not empty string.");
+		} else if (lastName.equals("")) {
+			System.out.println("Last Name is not valid, setting last name to not empty string.");
+		} else if (initialAge < 0) {
+			System.out.println("Age is not valid, setting age to 0.");
+		}
+                this.firstName = firstName;
+                this.lastName = lastName;
 		this.age = initialAge;
 		// Add some more code to run some checks on initialAge
 	}
@@ -38,5 +54,9 @@ class Person {
 	public void yearPasses() {
 		// Increment this person's age.
 		this.age++;
+	}
+
+	public String getFullName() {
+		return this.firstName + " " + this.lastName;
 	}
 }
